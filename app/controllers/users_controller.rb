@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-   end
+  end
  
   def edit
   end
@@ -29,13 +29,15 @@ class UsersController < ApplicationController
    eles
     render 'edit'
    end
+  end
    
   private
   
    def correct_user
      @user = User.find(params[:id])
      redirect_to root_path if @user != correct_user
-
+   end
+   
   def user_params
     params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation)
