@@ -20,12 +20,12 @@ class UsersController < ApplicationController
 
   def followings
    @user = User.new(user_params)
-   following_users.find_by(followed_id)  #ﾌｫﾛｰﾜｰIDから、ﾌｫﾛｰしているﾕｰｻﾞを取得
+   @followings = @user.following_users  #ﾌｫﾛｰﾜｰIDから、ﾌｫﾛｰしているﾕｰｻﾞを取得
   end
 
   def followers
    @user = User.new(user_params)
-   follower_users.find_by(followed_id)  #ﾌｫﾛｰﾜｰIDから、ﾌｫﾛｰされているﾕｰｻﾞを取得
+   @follower = @user.follower_users           #ﾌｫﾛｰﾜｰIDから、ﾌｫﾛｰされているﾕｰｻﾞを取得
   end
   
   private
