@@ -18,6 +18,16 @@ class UsersController < ApplicationController
     end
    end
 
+  def followings
+   @user = User.new(user_params)
+   following_users.find_by(followed_id)  #ﾌｫﾛｰﾜｰIDから、ﾌｫﾛｰしているﾕｰｻﾞを取得
+  end
+
+  def followers
+   @user = User.new(user_params)
+   follower_users.find_by(followed_id)  #ﾌｫﾛｰﾜｰIDから、ﾌｫﾛｰされているﾕｰｻﾞを取得
+  end
+  
   private
 
   def user_params
